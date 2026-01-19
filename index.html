@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CinemaHub - Kino Sayti</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">CinemaHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" onclick="scrollToSection('home')">Bosh Sahifa</a></li>
+                <li><a href="#movies" class="nav-link" onclick="scrollToSection('movies')">Kinolar</a></li>
+                <li><a href="#contact" class="nav-link" onclick="scrollToSection('contact')">Biz Bilan Bog'lanish</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Kinoni Sevuvchanlar Uchun</h1>
+            <p class="hero-subtitle">Eng Yaxshi Kinolar Birinchi O'rinda</p>
+            <button class="cta-button" onclick="scrollToSection('movies')">Kinolarni Ko'rish</button>
+        </div>
+        <div class="hero-overlay"></div>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="filters-section">
+        <div class="container">
+            <h2>Kategoriya bo'yicha Filtr</h2>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="filterMovies('all')">Hammasi</button>
+                <button class="filter-btn" data-filter="drama" onclick="filterMovies('drama')">Drama</button>
+                <button class="filter-btn" data-filter="action" onclick="filterMovies('action')">Jangari</button>
+                <button class="filter-btn" data-filter="comedy" onclick="filterMovies('comedy')">Komedia</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movies Section -->
+    <section id="movies" class="movies-section">
+        <div class="container">
+            <h2 class="section-title">Bizning Kinolar Kolleksiyasi</h2>
+            <div class="movies-grid" id="moviesGrid">
+                <!-- Movies will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <h2 class="section-title">Biz Bilan Bog'lanish</h2>
+                    <p class="contact-text">Savollaringiz bo'lsa yoki fikringizni bildirgingiz kelsa, bizga yozing.</p>
+                    <form class="contact-form" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ismingiz" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email Manzilingiz" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Xabargingiz" class="form-textarea" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Yuborish</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Biz Bilan Aloqada Bo'ling</h3>
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <p class="info-label">Email</p>
+                            <p class="info-value">info@cinemahub.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📱</span>
+                        <div>
+                            <p class="info-label">Telefon</p>
+                            <p class="info-value">+998 90 123 45 67</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <p class="info-label">Manzil</p>
+                            <p class="info-value">Tashkent, O'zbekiston</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Movie Detail Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-video">
+                    <iframe id="movieVideo" width="100%" height="500" src="" title="Kino" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="modal-details">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <div class="modal-meta">
+                        <span id="modalCategory" class="modal-category"></span>
+                        <span id="modalYear" class="modal-year"></span>
+                        <span id="modalRating" class="modal-rating"></span>
+                    </div>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <div class="modal-actions">
+                        <button class="action-button" onclick="playMovie()">▶ Kino Ko'rish</button>
+                        <button class="action-button secondary" onclick="closeModal()">Yopish</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 CinemaHub. Barcha huquqlar saqlanib qoladi.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
